@@ -20,18 +20,6 @@ namespace Telegenic.WebAPI.Controllers
             _genreRepository = (GenreRepository)genreRepository;
         }
 
-        //public IHttpActionResult GetSample()
-        //{
-        //    string[] sample = new string[] { "value1", "value2" };
-
-        //    if (sample == null || sample.Length == 0)
-        //    {
-        //        return NotFound();
-        //    }
-
-        //    return Ok(sample);
-        //}
-
         public IHttpActionResult GetAllGenre()
         {
             var genres = _genreRepository.GetAll();
