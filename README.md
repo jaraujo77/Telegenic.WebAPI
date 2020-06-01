@@ -3,11 +3,11 @@
 This WebAPI implements Dependency Injection using Castle.Windsor for Inversion of Control.
 It is also using nHibernate as the Object Relational Mapper.
 
-#Dependencies
+# Dependencies
 Castle.Windsor v5.0.1
 FluentNHibernate v2.1.2
 
-#Deployment Notes
+# Deployment Notes
 This WebAPI should be depoyed as a stand-alone service. I recommend using the following hostname:
 https://webapi.telegenic.com
 
