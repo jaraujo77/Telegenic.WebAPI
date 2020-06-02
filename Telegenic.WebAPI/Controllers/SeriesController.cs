@@ -21,13 +21,14 @@ namespace Telegenic.WebAPI.Controllers
         }
 
 
-
+        [HttpGet]
         public IEnumerable<Series> Get()
         {
             var series = _seriesRepository.GetFeaturedItems().Cast<Series>();
             return series;
         }
 
+        [HttpGet]
         public Series Get(int id)
         {
             var series = _seriesRepository.GetById(id);
@@ -36,7 +37,6 @@ namespace Telegenic.WebAPI.Controllers
             {
                 var response = new HttpResponseMessage(HttpStatusCode.NotFound)
                 {
-                    //Content = new StringContent(string.Format("No Product with ID = {0}", _seriesId)),
                     Content = new StringContent($"No Series with ID {id}"),
                     ReasonPhrase = "Series ID not found"
                 };
@@ -46,6 +46,7 @@ namespace Telegenic.WebAPI.Controllers
             return series;
         }
 
+        [HttpGet]
         public IEnumerable<Series> Get(string _Title)
         {
             var series = _seriesRepository.GetByTitle(_Title).Cast<Series>().ToList();
@@ -63,18 +64,21 @@ namespace Telegenic.WebAPI.Controllers
             return series;
         }
 
+        [HttpPost]
         public void Post(Series series)
-        {
+        {            
             _seriesRepository.Save(series);
         }
 
-        public void Delete(Series series)
+        [HttpDelete]
+        public IHttpActionResult Delete(Series series)
         {
             if (_seriesRepository.Delete(series))
             {
-                var error = _seriesRepository.ErrorMessage;
-                var exception = _seriesRepository.Exception;
+                return StatusCode(HttpStatusCode.NoContent);
             }
+
+            return BadRequest("Series not deleted");
         }
 
 
