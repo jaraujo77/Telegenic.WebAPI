@@ -1,6 +1,6 @@
 # Telegenic.WebAPI
 
-This WebAPI implements Dependency Injection using Castle.Windsor.
+This WebAPI implements Dependency Injection using Castle.Windsor.\
 It is also using nHibernate as the Object Relational Mapper.
 
 # Dependencies
